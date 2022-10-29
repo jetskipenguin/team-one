@@ -1,0 +1,5 @@
+.barH:hover{
+    fill:#f95353;
+    cursor: pointer;
+    transition: ease 0.3s;
+}

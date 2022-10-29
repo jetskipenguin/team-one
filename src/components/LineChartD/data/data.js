@@ -1,0 +1,20 @@
+export default [
+    {date:new Date('2019-01-4'), value:89}, 
+    {date:new Date('2019-01-11'), value:96},
+    {date:new Date('2019-01-18'), value:87},
+    {date:new Date('2019-01-25'), value:99},
+    {date:new Date('2019-02-04'), value:83},
+    {date:new Date('2019-02-11'), value:93},
+    {date:new Date('2019-02-18'), value:79},
+    {date:new Date('2019-02-18'), value:79},
+    {date:new Date('2019-02-25'), value:94},
+    {date:new Date('2019-03-4'), value:89},
+    {date:new Date('2019-03-11'), value:93},
+    {date:new Date('2019-03-18'), value:81},
+    {date: new Date('2019-04-24'), value:95.35},
+    {date: new Date('2019-04-25'), value:98.84},
+    {date: new Date('2019-04-26'), value:99.92},
+    {date: new Date('2019-04-29'), value:99.8},
+    {date: new Date('2019-05-01'), value:99.47},
+    {date: new Date('2019-05-02'), value:100.39}
+]
