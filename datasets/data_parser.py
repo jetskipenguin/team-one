@@ -22,6 +22,20 @@ if __name__ == "__main__":
                 except Exception as e:
                     print(f"Couldn't Sum {e}")
 
+    sum = 0
+    for i in res.keys():
+        sum += res[i]
+
+    new_dict = {}
+    other = 0
+    for i in res.keys():
+        if(res[i] < sum / 32):
+            other += res[i]
+        else:
+            new_dict[i] = res[i]
+
+    new_dict['other'] = other
+
     with open(out, 'w') as f:
-        for i in res.keys():
-            f.write("{ name: \"" + str(i) + "\" , value: " + str(res[i]) + " }, \n")
+        for i in new_dict.keys():
+            f.write("{ name: \"" + str(i) + "\" , value: " + str(new_dict[i]) + " }, \n")
