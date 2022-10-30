@@ -8,6 +8,4 @@ export default [
     { name: "Alaska" , value: 15338781.0 }, 
     { name: "California" , value: 9988225.0 }, 
     { name: "other" , value: 8945639.0 }, 
-    
-
 ]

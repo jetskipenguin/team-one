@@ -19,7 +19,7 @@ function ChartLine(){
                 padAngle={.005}
                 data={data} />
             </svg>
-          </div> 
+          </div>
         );
       }
 export default ChartLine;
