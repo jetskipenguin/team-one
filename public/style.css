@@ -7,13 +7,10 @@
 .container-fluid { 
     background-color: black; 
     color: rgb(157, 153, 153);
-}
-
-.navbar-header {
-    background-color: blueviolet;
-}
+  }
 
 .jumbotron {
-    margin: 50px;;
-    padding: 50%;
+  margin: 50px;;
+  padding: 50px;
+  display: flex;
 }
