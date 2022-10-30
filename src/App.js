@@ -16,8 +16,6 @@ var california = "//www.eia.gov/opendata/v1/embed/iframe.php?api_key=" + API_KEY
 
 class App extends Component {
 
-  
-
   mapHandler = (event) => {
     if(event.target.dataset.name == "TX"){
       this.setState({src: texas});
@@ -27,13 +25,26 @@ class App extends Component {
     }
     if(event.target.dataset.name == "CA") {
       this.setState({src: california});
-    }
-    
+    }    
   };
 
   state = {
     src: alaska
   }
+
+  statesFilling = () => {
+    return {
+      "CA": {
+        fill: "#777777",
+      },
+      "TX": {
+        fill: "#777777"
+      },
+      "AK": {
+        fill: "#777777"
+      }
+    };
+  };
   
   render() 
   {
@@ -43,7 +54,7 @@ class App extends Component {
         <h2>Oil Production By State from 1981 to 2016</h2>
   
         <PieChart/>
-        <USAMap onClick={this.mapHandler}/>
+        <USAMap customize={this.statesFilling()} onClick={this.mapHandler}/>
         <Iframe source={this.state.src} />
       </div>
     );
