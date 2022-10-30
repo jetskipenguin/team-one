@@ -8,11 +8,20 @@ import NavigationBar from './Nav'
 // example on how to use map:
 // https://github.com/gabidavila/react-usa-map-demo/blob/master/src/App.js
 
+var changeable = "//www.eia.gov/opendata/v1/embed/iframe.php?api_key=E0qs2v71QQZScSd0Ige5auJ1nnrk55BgsEdBbb7a&series_id=PET.EMA_EPJK_PTG_NUS_DPG.A;PET.EMA_EPJK_PWG_NUS_DPG.A;PET.EMA_EPLLPA_PTG_NUS_DPG.A;PET.EMA_EPLLPA_PWG_NUS_DPG.A;PET.EMA_EPM0_PTG_NUS_DPG.A;PET.EMA_EPM0_PWG_NUS_DPG.A;PET.EMA_EPPK_PTG_NUS_DPG.A;PET.EMA_EPPK_PWG_NUS_DPG.A;PET.EMA_EPPV_PTG_NUS_DPG.A;PET.EMA_EPPV_PWG_NUS_DPG.A";
+
+
 class App extends Component {
 
+  
+
   mapHandler = (event) => {
-    alert(event.target.dataset.name);
+    this.setState({src: changeable});
   };
+
+  state = {
+    src: "//www.eia.gov/opendata/v1/embed/iframe.php?api_key=E0qs2v71QQZScSd0Ige5auJ1nnrk55BgsEdBbb7a&series_id=PET.RCRR9907SAK_1.A;PET.RL2R9911SAK_1.A;PET.RNGR9908SAK_1.A;PET.RNGR9909SAK_1.A;PET.RNGR9910SAK_1.A"
+  }
   
   // statesFilling = () => {
   //   return {
@@ -25,7 +34,7 @@ class App extends Component {
   //     }
   //   };
   // };
-  
+ 
   render() 
   {
     return (
@@ -35,7 +44,7 @@ class App extends Component {
   
         <PieChart/>
         <USAMap onClick={this.mapHandler}/>
-        <Iframe source="//www.eia.gov/opendata/v1/embed/iframe.php?api_key=E0qs2v71QQZScSd0Ige5auJ1nnrk55BgsEdBbb7a&series_id=PET.RCRR9907SAK_1.A;PET.RL2R9911SAK_1.A;PET.RNGR9908SAK_1.A;PET.RNGR9909SAK_1.A;PET.RNGR9910SAK_1.A" load="iframe_load"/>
+        <Iframe source={this.state.src} />
       </div>
     );
   }
