@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import *  as d3 from 'd3';
 import Slice from './Slice'
 
+
 function Pie({data,x,y,innerRadius, outerRadius, cornerRadius, padAngle}){
       const colorScale = ['#5371f9','#4fc3f7','#cfd8dc','#66a3ff','#8cff66','#7986cb','#fb7a8e','#cef9c2','#f9d2c2','#a46fb6', "#FF8B8B", "#F5FFA2", "#AAFFA2", "#9FD1FF", "#FFAEF7"];
       const labels = data.map(function(v){
@@ -25,6 +26,8 @@ function Pie({data,x,y,innerRadius, outerRadius, cornerRadius, padAngle}){
           );
     }
       let pie = d3.pie();
+
+
       let data_values=data.map(function(v){
         return v.value
       })
@@ -34,4 +37,7 @@ function Pie({data,x,y,innerRadius, outerRadius, cornerRadius, padAngle}){
         </g>
       );
     }
+
+    
+
 export default Pie
