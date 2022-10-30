@@ -8,25 +8,18 @@
 	    font-family: Arial, Helvetica, sans-serif;
 	    font-size: 16px;
 	    background-color: #ddd;
-	    color: #333;
+	    color: rgb(63, 63, 65);
 	    padding: 5px;
 	    font-weight: bold;
     }
       
     .container-fluid { 
-        background-color: black; 
-        color: rgb(157, 153, 153);
+        background-color: rgb(255, 254, 254);
+        color: rgb(0, 0, 0);
+		height: 50%;
       }
 
-    .navbar {
-      background-color: blueviolet;
-    }
 
-   .jumbotron {
-      margin: 50px;;
-      padding: 50px;
-      display: flex;
-    }
 
 	</style>
 
@@ -85,9 +78,12 @@
 	        .stop()
 	        .css('backgroundColor', '#af0')
 	        .animate({backgroundColor: '#ddd'}, 1000);
-          window.open("/src/pages")
+			if(data.name == "TX") {
+                $("#eia_widget").attr('src',  "//www.eia.gov/opendata/v1/embed/iframe.php?api_key=" + API_KEY + "&series_id=NG.N3035TX3.M;NG.N3020TX4.M;NG.N3020TX3.M;NG.N3050TX3.M;NG.NA1504_STX_4.M;NG.N3010TX3.M;NG.N3045TX3.M;NG.N3035TX4.M");
+            }
 	    }
 	  });
+	  
 	  
 	  $('#over-md').click(function(event){
 	    $('#map').usmap('trigger', 'MD', 'mouseover', event);
@@ -104,11 +100,11 @@
   <div class="container-fluid">
     <nav class="navbar navbar-default">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#"> WebsiteName </a>
+        <a class="navbar-brand" href="index.html"> WebsiteName </a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="page1.html"> About </a></li>
+        <li class="active"><a href="index.html">Home</a></li>
+        <li><a href="about.html"> About </a></li>
         <!--
         <li><a href="#"> Page 2 </a></li>
         <li><a href="#"> Page 3 </a></li>
@@ -118,26 +114,26 @@
   </div>
   
 
-  <div class="container-fluid">
-    <div class="row">
+  <div class="container-fluid" style="height: 500px; align-content: center;">
       <div class="jumbotron-fluid">
-        <h1 class="display-4">Hello, world!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-      </div>
-    </div>
+        <h1 class="display-4" style="text-align:center; padding-top: 10%;">Hello!</h1>
+        <p class="lead" style="padding-left: 20%;">This is a website to visualize the data and oil production of each state in the United States. </p>
+		<div class="col text-center">
+        	<a class="btn btn-primary btn-lg" href="#mapPage" role="button"> Click for map</a>
+		</div>
+	  </div>
+	</div>
 
-    <div id="alert">Click alerts</div>
+	<div class="container-fluid" id="mapPage">
+		<div id="alert">Click alerts</div>
 
-    <h2> US Map For Oil and Gas Production Stats </h2>
-    <div id="map2" style="width: 930px; height: 630px;"></div>
-	<iframe id="eia_widget" style="width: 100%; height: 500px;" src="//www.eia.gov/opendata/v1/embed/iframe.php?api_key=E0qs2v71QQZScSd0Ige5auJ1nnrk55BgsEdBbb7a&series_id=PET.RCRR9907SAK_1.A;PET.RL2R9911SAK_1.A;PET.RNGR9908SAK_1.A" load="iframe_load"></iframe>
-  <iframe id="eia_widget" style="width: 100%; height: 500px;" src="//www.eia.gov/opendata/v1/embed/iframe.php?api_key=E0qs2v71QQZScSd0Ige5auJ1nnrk55BgsEdBbb7a&series_id=PET.EMA_EPJK_PTG_SAK_DPG.A;PET.EMA_EPJK_PWG_SAK_DPG.A;PET.EMA_EPM0_PWG_SAK_DPG.A;PET.EMA_EPPK_PTG_SAK_DPG.A;PET.EMA_EPPK_PWG_SAK_DPG.A;PET.EMA_EPPV_PTG_SAK_DPG.A;PET.EMA_EPPV_PWG_SAK_DPG.A" load="iframe_load"></iframe>
-  <iframe id="eia_widget" style="width: 100%; height: 500px;" src="//www.eia.gov/opendata/v1/embed/iframe.php?api_key=E0qs2v71QQZScSd0Ige5auJ1nnrk55BgsEdBbb7a&series_id=NG.RL2R01SAK_1.A;NG.RL2R02SAK_1.A;NG.RL2R03SAK_1.A;NG.RL2R04SAK_1.A;NG.RL2R05SAK_1.A;NG.RL2R06SAK_1.A;NG.RL2R07SAK_1.A;NG.RL2R08SAK_1.A;NG.RL2R09SAK_1.A;NG.RL2R10SAK_1.A" load="iframe_load"></iframe>
-
-  </div>
+		<h2> US Map For Oil and Gas Production Stats </h2>
+		<p>Click on a state to see its production of oil and gas. </p>
+		<div id="map2" style="width: 930px; height: 630px;"></div>
+		<iframe id="eia_widget" style="width: 100%; height: 500px;" src="//www.eia.gov/opendata/v1/embed/iframe.php?api_key=E0qs2v71QQZScSd0Ige5auJ1nnrk55BgsEdBbb7a&series_id=PET.RCRR9907SAK_1.A;PET.RL2R9911SAK_1.A;PET.RNGR9908SAK_1.A" load="iframe_load"></iframe>
+		<iframe id="eia_widget" style="width: 100%; height: 500px;" src="//www.eia.gov/opendata/v1/embed/iframe.php?api_key=E0qs2v71QQZScSd0Ige5auJ1nnrk55BgsEdBbb7a&series_id=PET.EMA_EPJK_PTG_SAK_DPG.A;PET.EMA_EPJK_PWG_SAK_DPG.A;PET.EMA_EPM0_PWG_SAK_DPG.A;PET.EMA_EPPK_PTG_SAK_DPG.A;PET.EMA_EPPK_PWG_SAK_DPG.A;PET.EMA_EPPV_PTG_SAK_DPG.A;PET.EMA_EPPV_PWG_SAK_DPG.A" load="iframe_load"></iframe>
+		<iframe id="eia_widget" style="width: 100%; height: 500px;" src="//www.eia.gov/opendata/v1/embed/iframe.php?api_key=E0qs2v71QQZScSd0Ige5auJ1nnrk55BgsEdBbb7a&series_id=NG.RL2R01SAK_1.A;NG.RL2R02SAK_1.A;NG.RL2R03SAK_1.A;NG.RL2R04SAK_1.A;NG.RL2R05SAK_1.A;NG.RL2R06SAK_1.A;NG.RL2R07SAK_1.A;NG.RL2R08SAK_1.A;NG.RL2R09SAK_1.A;NG.RL2R10SAK_1.A" load="iframe_load"></iframe>
+  	</div>
 
 </body>
 </html>
