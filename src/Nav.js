@@ -52,6 +52,7 @@ import {
 function Example(args) {
   const [isOpen, setIsOpen] = useState(false);
 
+<<<<<<< HEAD
   const toggle = () => setIsOpen(!isOpen);
 
   return (
@@ -83,6 +84,28 @@ function Example(args) {
       </Navbar>
     </div>
   );
+=======
+class NavigationBar extends Component {
+    render() {
+        return (
+            <div>
+                <Navbar>
+                    <NavbarBrand style={{color: 'white'}} href="/">Oil and Gas In the United States</NavbarBrand>
+                    <Nav className="me-auto" navbar>
+                        <NavItem>
+                            <NavLink style={{color: 'white'}} href="/about">About</NavLink>
+                            </NavItem>
+                        <NavItem>
+                            <NavLink style={{color: 'white'}} href="https://github.com/jetskipenguin/team-one">
+                                GitHub
+                            </NavLink>
+                        </NavItem>
+                    </Nav>
+                </Navbar>
+            </div>
+        );
+    }
+>>>>>>> efe209376c04002692ec8f0e73028ea9db532958
 }
 
 export default Example;

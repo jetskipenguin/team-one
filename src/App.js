@@ -1,8 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import PieChart from './components/PieChartWhole/PieChart';
-import LineChart from './components/StreamGraph/LineChart';
-import ChartBubble from './components/Lollipop/BubbleChart';
+import Iframe from './components/iframe'
 import USAMap from './components/UsaState/USAState'
 import NavigationBar from './Nav'
 
@@ -36,8 +35,7 @@ class App extends Component {
   
         <PieChart/>
         <USAMap onClick={this.mapHandler}/>
-  
-        
+        <Iframe source="//www.eia.gov/opendata/v1/embed/iframe.php?api_key=E0qs2v71QQZScSd0Ige5auJ1nnrk55BgsEdBbb7a&series_id=PET.RCRR9907SAK_1.A;PET.RL2R9911SAK_1.A;PET.RNGR9908SAK_1.A;PET.RNGR9909SAK_1.A;PET.RNGR9910SAK_1.A" load="iframe_load"/>
       </div>
     );
   }
