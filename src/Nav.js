@@ -9,7 +9,6 @@ import {
 
 
 class NavigationBar extends Component {
-
     render() {
         return (
             <div>
