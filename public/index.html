@@ -1,75 +1,143 @@
 <!DOCTYPE html>
 <html>
-	<link rel="stylesheet" href="../App.css">
 <head>
-	<!-- <iframe id="eia_widget" style="width: 100%; height: 500px;" src="//www.eia.gov/opendata/v1/embed/iframe.php?api_key=E0qs2v71QQZScSd0Ige5auJ1nnrk55BgsEdBbb7a&series_id=PET.RCRR9907SAK_1.A;PET.RL2R9911SAK_1.A;PET.RNGR9908SAK_1.A;PET.RNGR9909SAK_1.A;PET.RNGR9910SAK_1.A" load="iframe_load"></iframe> -->
 	<title>US Map</title>
 	
 	<style>
-	  /* #alert {
+	  #alert {
 	    font-family: Arial, Helvetica, sans-serif;
 	    font-size: 16px;
 	    background-color: #ddd;
 	    color: #333;
 	    padding: 5px;
 	    font-weight: bold;
-    } */
+    }
       
-    /* .container-fluid { 
+    .container-fluid { 
         background-color: black; 
         color: rgb(157, 153, 153);
-      } */
+      }
 
     .navbar {
       background-color: blueviolet;
     }
 
-	a {
-		color: white;
-	}
-/* 
    .jumbotron {
       margin: 50px;;
       padding: 50px;
       display: flex;
-    } */
+    }
 
 	</style>
 
- 
-	 <meta
-	   name="description"
-	   content="Web site created using create-react-app"
-	 />
-	 <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-	 <!--
-	   manifest.json provides metadata used when your web app is installed on a
-	   user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-	 -->
-	 <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-	 <!--
-	   Notice the use of %PUBLIC_URL% in the tags above.
-	   It will be replaced with the URL of the `public` folder during the build.
-	   Only files inside the `public` folder can be referenced from the HTML.
-	   Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-	   work correctly both with client-side routing and a non-root public URL.
-	   Learn how to configure a non-root public URL by running `npm run build`.
-	 -->
-	 <title>React App</title>
-   </head>
-   <body>
-	 <noscript>You need to enable JavaScript to run this app.</noscript>
-	 <div id="root"></div>
-	 <!--
-	   This HTML file is a template.
-	   If you open it directly in the browser, you will see an empty page.
-	   You can add webfonts, meta tags, or analytics to this file.
-	   The build step will place the bundled scripts into the <body> tag.
-	   To begin the development, run `npm start` or `yarn start`.
-	   To create a production bundle, use `npm run build` or `yarn build`.
-	 -->
-   </body>
- </html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+	<script src="../lib/raphael.js"></script>
+	<!-- <script src="scale.raphael.js"></script> -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+	<script src="color.jquery.js"></script>
+	<script src="../jquery.usmap.js"></script>
+	
+	<script>
+	$(document).ready(function() {
+	  $('#map').usmap({
+	    'stateSpecificStyles': {
+	      'AK' : {fill: '#f00'}
+	    },
+	    'stateSpecificHoverStyles': {
+	      'HI' : {fill: '#ff0'}
+	    },
+	    
+	    'mouseoverState': {
+	      'HI' : function(event, data) {
+	        //return false;
+	      }
+	    },
+	    
+	    
+	    'click' : function(event, data) {
+	      $('#alert')
+	        .text('Click '+data.name+' on map 1')
+	        .stop()
+	        .css('backgroundColor', '#ff0')
+	        .animate({backgroundColor: '#ddd'}, 1000);
+	    }
+	  });
+	  
+	  $('#map2').usmap({
+	    'stateStyles': {
+	      fill: '#025', 
+	      "stroke-width": 1,
+	      'stroke' : '#036'
+	    },
+	    'stateHoverStyles': {
+	      fill: 'teal'
+	    },
+	    
+	    'click' : function(event, data) {
+	      $('#alert')
+			//should lead to state specified gas and oil production page
+	        .text('You clicked '+data.name+' on map 2')
+	        .stop()
+	        .css('backgroundColor', '#af0')
+	        .animate({backgroundColor: '#ddd'}, 1000);
+          window.open("/src/pages")
+	    }
+	  });
+	  
+	  $('#over-md').click(function(event){
+	    $('#map').usmap('trigger', 'MD', 'mouseover', event);
+	  });
+	  
+	  $('#out-md').click(function(event){
+	    $('#map').usmap('trigger', 'MD', 'mouseout', event);
+	  });
+	});
+	</script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"> WebsiteName </a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="page1.html"> About </a></li>
+        <!--
+        <li><a href="#"> Page 2 </a></li>
+        <li><a href="#"> Page 3 </a></li>
+        -->
+      </ul>
+      </nav>
+  </div>
+  
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="jumbotron-fluid">
+        <h1 class="display-4">Hello, world!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+      </div>
+    </div>
+
+    <div id="alert">Click alerts</div>
+
+    <h2> US Map For Oil and Gas Production Stats </h2>
+    <div id="map2" style="width: 930px; height: 630px;"></div>
+	<iframe id="eia_widget" style="width: 100%; height: 500px;" src="//www.eia.gov/opendata/v1/embed/iframe.php?api_key=E0qs2v71QQZScSd0Ige5auJ1nnrk55BgsEdBbb7a&series_id=PET.RCRR9907SAK_1.A;PET.RL2R9911SAK_1.A;PET.RNGR9908SAK_1.A" load="iframe_load"></iframe>
+  <iframe id="eia_widget" style="width: 100%; height: 500px;" src="//www.eia.gov/opendata/v1/embed/iframe.php?api_key=E0qs2v71QQZScSd0Ige5auJ1nnrk55BgsEdBbb7a&series_id=PET.EMA_EPJK_PTG_SAK_DPG.A;PET.EMA_EPJK_PWG_SAK_DPG.A;PET.EMA_EPM0_PWG_SAK_DPG.A;PET.EMA_EPPK_PTG_SAK_DPG.A;PET.EMA_EPPK_PWG_SAK_DPG.A;PET.EMA_EPPV_PTG_SAK_DPG.A;PET.EMA_EPPV_PWG_SAK_DPG.A" load="iframe_load"></iframe>
+  <iframe id="eia_widget" style="width: 100%; height: 500px;" src="//www.eia.gov/opendata/v1/embed/iframe.php?api_key=E0qs2v71QQZScSd0Ige5auJ1nnrk55BgsEdBbb7a&series_id=NG.RL2R01SAK_1.A;NG.RL2R02SAK_1.A;NG.RL2R03SAK_1.A;NG.RL2R04SAK_1.A;NG.RL2R05SAK_1.A;NG.RL2R06SAK_1.A;NG.RL2R07SAK_1.A;NG.RL2R08SAK_1.A;NG.RL2R09SAK_1.A;NG.RL2R10SAK_1.A" load="iframe_load"></iframe>
+
+  </div>
 
 </body>
 </html>
