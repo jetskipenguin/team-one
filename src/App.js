@@ -4,6 +4,7 @@ import PieChart from './components/PieChartWhole/PieChart';
 import LineChart from './components/StreamGraph/LineChart';
 import ChartBubble from './components/Lollipop/BubbleChart';
 import USAMap from './components/UsaState/USAState'
+import NavigationBar from './Nav'
 
 // example on how to use map:
 // https://github.com/gabidavila/react-usa-map-demo/blob/master/src/App.js
@@ -30,9 +31,9 @@ class App extends Component {
   {
     return (
       <div className="App">
+        <NavigationBar/>
         <h2>Oil Production By State from 1981 to 2016</h2>
   
-        
         <PieChart/>
         <USAMap onClick={this.mapHandler}/>
   
