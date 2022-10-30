@@ -11,7 +11,23 @@
 	    color: #333;
 	    padding: 5px;
 	    font-weight: bold;
-	  }
+    }
+      
+    .container-fluid { 
+        background-color: black; 
+        color: rgb(157, 153, 153);
+      }
+
+    .navbar {
+      background-color: blueviolet;
+    }
+
+   .jumbotron {
+      margin: 50px;;
+      padding: 50px;
+      display: flex;
+    }
+
 	</style>
 
 <meta charset="utf-8">
@@ -69,6 +85,7 @@
 	        .stop()
 	        .css('backgroundColor', '#af0')
 	        .animate({backgroundColor: '#ddd'}, 1000);
+          window.open("/src/pages")
 	    }
 	  });
 	  
@@ -84,25 +101,37 @@
 </head>
 
 <body>
-  <div id="alert">Click alerts</div>
-
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
+  <div class="container-fluid">
+    <nav class="navbar navbar-default">
       <div class="navbar-header">
         <a class="navbar-brand" href="#"> WebsiteName </a>
       </div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
+        <li><a href="page1.html"> About </a></li>
         <!--
-        <li><a href="page1.html"> Page 1 </a></li>
         <li><a href="#"> Page 2 </a></li>
         <li><a href="#"> Page 3 </a></li>
         -->
       </ul>
-    </div>
-  </nav>
+      </nav>
+  </div>
+  
 
-  <div class="container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="jumbotron-fluid">
+        <h1 class="display-4">Hello, world!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+      </div>
+    </div>
+
+    <div id="alert">Click alerts</div>
+
+    <h2> US Map For Oil and Gas Production Stats </h2>
     <div id="map2" style="width: 930px; height: 630px;"></div>
   </div>
 
