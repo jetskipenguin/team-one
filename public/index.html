@@ -43,6 +43,7 @@
 	<script src="../jquery.usmap.js"></script>
 	
 	<script>
+	const API_KEY = 'E0qs2v71QQZScSd0Ige5auJ1nnrk55BgsEdBbb7a'
 	$(document).ready(function() {
 	  $('#map').usmap({
 	    'stateSpecificStyles': {
@@ -85,7 +86,10 @@
 	        .stop()
 	        .css('backgroundColor', '#af0')
 	        .animate({backgroundColor: '#ddd'}, 1000);
-          window.open("/src/pages")
+			if(data.name == "TX") {
+				console.log('You clicked texas');
+				$("#eia_widget").attr('src',  "//www.eia.gov/opendata/v1/embed/iframe.php?api_key=" + API_KEY + "&series_id=NG.N3035TX3.M;NG.N3020TX4.M;NG.N3020TX3.M;NG.N3050TX3.M;NG.NA1504_STX_4.M;NG.N3010TX3.M;NG.N3045TX3.M;NG.N3035TX4.M");
+			}
 	    }
 	  });
 	  

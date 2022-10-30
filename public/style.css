@@ -14,3 +14,7 @@
   padding: 50px;
   display: flex;
 }
+
+#eia_widget {
+  display: none;
+}
